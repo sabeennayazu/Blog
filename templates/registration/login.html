@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="" method="post">
+{% csrf_token %}
+{% if form.errors and form.non_field_errors %}
+{{ form.non_field_errors }}
+{% endif %}
+<label for="username" class="form-label">Username:</label>
+{{ form.username.errors }}
+<input type="text" id="username" name="username" class="form-control" value="{{ form.username.value }}" required>
+
+<label for="password" class="form-label">Password:</label>
+{{ form.password.errors }}
+<input type="password" id="password" name="password" class="form-control" value="{{ form.password.value }}" required>
+
+<button type="submit" class="btn btn-primary">Login</button>
+
+</form>
+
+
+{% endblock content %}
